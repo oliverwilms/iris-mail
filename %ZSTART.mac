@@ -1,0 +1,22 @@
+ROUTINE %ZSTART
+%ZSTART ; User startup routine
+	Quit
+SYSTEM ; InterSystems IRIS starting
+	New
+	Try {
+		ZN "USER"
+		Set ^Ens.AutoStart="Demo.RecordMap.Production"
+		Set ^Ens.AutoStart("StartupPriority")=0
+		ZN "%SYS"
+	} Catch { }
+	Quit
+LOGIN ; a user logs into InterSystems IRIS
+	Quit
+JOB ; JOB'd process begins
+	Quit
+	New
+	Try {
+	} Catch { }
+	Quit
+CALLIN ; process enters via CALLIN interface
+	Quit
