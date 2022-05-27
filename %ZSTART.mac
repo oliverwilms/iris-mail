@@ -5,7 +5,7 @@ SYSTEM ; InterSystems IRIS starting
 	New
 	Try {
 		ZN "USER"
-		Set ^Ens.AutoStart="Demo.RecordMap.Production"
+		Set ^Ens.AutoStart="dc.iris.mail.Production"
 		Set ^Ens.AutoStart("StartupPriority")=0
 		ZN "%SYS"
 	} Catch { }
