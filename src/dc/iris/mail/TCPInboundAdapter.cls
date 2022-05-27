@@ -103,7 +103,7 @@ Method OnInit() As %Status
 		Set:""'=..Terminators ..Socket.LineTerminator=..Terminators
 		Set $ZT="OnConnectTrap"
 		$$$sysTRACE("Before Host OnConnect in Adapter OnInit")
-		Set tSC=..BusinessHost.OnConnect(0)  If $$$ISERR(tSC) Do ..Disconnect()  Quit
+		Set tSC=..BusinessHost.OnConnect(0)  If $$$ISERR(tSC) Do ..Disconnect()  Quit tSC
 OnConnectTrap
 	} Else {
 		#; initialize for main TCP listener job
@@ -512,6 +512,27 @@ Method OnKeepalive(pUnused As %Status) As %Status
 		Quit $$$OK
 	}
 	Quit ##super($$$OK)
+}
+
+/// Copied from dc.iris.mail.TCPTextLineCommon
+Method WriteLine(
+	pString As %String,
+	pInbound As %Boolean = 0) As %Status
+{
+	$$$sysTRACE("dc.iris.mail.TCPInboundAdapter ***WriteLine")
+	$$$sysTRACE("pString "_pString)
+	$$$sysTRACE("pInbound "_pInbound)
+
+	Set $ZT="Trap"
+	Set:""=..%Table ..%Table=##class(%IO.I.TranslationDevice).GetCharEncodingTable(..Charset)
+	Set:"RAW"'=..%Table pString=$ZCVT(pString,"O",..%Table)
+	Write pString_$S(..%HadCR:$C(13),1:"")_..Terminators, *-3
+	$$$sysTRACE("Wrote terminated string '"_pString_"' to "_..IOAddr_" using Terminator "_$S(..%HadCR:"13,",1:"")_$A(..Terminators)_", charset '"_..Charset_"'")
+	
+	Quit $$$OK
+Trap
+	Set $ZT="", tZE=$ZE, tSC=$$$ERROR($$$CacheError,$G(tZE))
+	Quit tSC
 }
 
 }
