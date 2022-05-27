@@ -23,7 +23,7 @@ ClassMethod SetAutoStart(
   Do tInstaller.PushNS(Namespace)
   Set tSC = $$$OK
   Try {
-    Set ^Ens.AutoStart = "Demo.RecordMap.Production"
+    Set ^Ens.AutoStart = "dc.iris.mail.Production"
     Set ^Ens.AutoStart("StartupPriority") = 0
   } Catch { }
   Do tInstaller.PopNS()
