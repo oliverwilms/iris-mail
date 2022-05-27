@@ -7,6 +7,7 @@
       <Description>iris-mail</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
+      <Resource Name="Mail.inc"/>
       <Resource Name="dc.iris.PKG"/>
     </Module>
   </Document>
