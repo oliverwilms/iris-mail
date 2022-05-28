@@ -1,4 +1,4 @@
 def getProductionName():
-  myGref = iris.gref('^Ens.Runtime')
+  myGref = iris.gref('Ens.Runtime')
   pName = myGref["Name"]
   return pName
