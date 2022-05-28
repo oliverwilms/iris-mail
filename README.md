@@ -33,5 +33,11 @@ docker-compose build
 docker-compose up -d
 ```
 
+## Python Shell
+
+```
+do ##class(%SYS.Python).Shell()
+```
+
 ## Online Demo
 You can find online demo here - [demo](https://iris-mail.demo.community.intersystems.com/csp/sys/UtilHome.csp)
