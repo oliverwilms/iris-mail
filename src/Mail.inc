@@ -1,3 +1,4 @@
+ROUTINE Mail [Type=INC]
 #include Ensemble
 
 #; Mail
