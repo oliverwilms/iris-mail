@@ -33,6 +33,12 @@ docker-compose build
 docker-compose up -d
 ```
 
+## IRIS terminal:
+
+```
+docker-compose exec iris iris session iris
+```
+
 ## Python Shell
 
 ```
