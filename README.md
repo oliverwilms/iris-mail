@@ -39,6 +39,10 @@ docker-compose up -d
 docker-compose exec iris iris session iris
 ```
 
+```
+write ##class(dc.iris.mail.EmbeddedPython).getProductionName()
+```
+
 ## Python Shell
 
 ```
