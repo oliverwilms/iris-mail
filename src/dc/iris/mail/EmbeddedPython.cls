@@ -1,7 +1,7 @@
 Class dc.iris.mail.EmbeddedPython
 {
 
-/// Description
+/// https://docs.intersystems.com/irisforhealthlatest/csp/docbook/DocBook.UI.Page.cls?KEY=AEPYTHON#AEPYTHON_runpython_method
 ClassMethod Test() As %Status [ Language = python ]
 {
     # print the members of the Fibonacci series that are less than 10
