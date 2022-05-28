@@ -1,6 +1,15 @@
 Class dc.iris.mail.EmbeddedPython
 {
 
+ClassMethod getProductionName() As %Status [ Language = python ]
+{
+    # import the iris module
+    import iris
+    myGref = iris.gref('^Ens.Runtime')
+    pName = myGref["Name"]
+    return pName
+}
+
 /// https://docs.intersystems.com/irisforhealthlatest/csp/docbook/DocBook.UI.Page.cls?KEY=AEPYTHON#AEPYTHON_runpython_method
 ClassMethod Test() As %Status [ Language = python ]
 {
