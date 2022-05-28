@@ -1,4 +1,3 @@
-ROUTINE Mail [Type=INC]
 #include Ensemble
 
 #; Mail
@@ -6,7 +5,7 @@ ROUTINE Mail [Type=INC]
 #Define Space				$Char(32)
 #Define MMfindDOMAIN		"MAILDOMAIN"
 #Define MailDomain(%t,%md)	$REPLACE(%t,$$$MMfindDOMAIN,%md)
-#Define MMReady				"220 MAILDOMAIN MailMan 8.0 ready"
+#Define MMReady				"220 MAILDOMAIN iris-mail 8.0 ready"
 #Define MMResponseData		"354 Enter data"
 #Define MMResponseDefault	"250 OK"
 #Define MMResponseHELO		"250 OK MAILDOMAIN [8.0,DUP,SER,FTP]"
