@@ -1,6 +1,6 @@
 # iris-mail
 
-This app serves as a substitute for mail server. I want to do load testing on an app which sends messages to a mail server. The people responsible for the mail server do not want to receive thousands of messages whenever I do load testing.
+This app serves as a substitute for mail server. I created it to do load testing on an app which sends messages to a mail server. The people responsible for the mail server do not want to receive thousands of messages whenever I do load testing.
 
 I start iris-mail in a container and redirect the messages from the real mail server to the substitute. I can review messages in iris-mail to confirm the correct number of messages have been received.
 
