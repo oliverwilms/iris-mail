@@ -8,5 +8,6 @@ Do ##class(Security.Users).UnExpireUserPasswords("*")
 zn "USER"
 zpm "install production-monitor"
 zpm "install webcommand"
+zpm "install webterminal"
 zpm "load /opt/irisbuild/ -v":1:1
 halt
