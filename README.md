@@ -53,9 +53,12 @@ do ##class(%SYS.Python).Shell()
 
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/iris-mail-demo.png)
 
-You can find online demo here - [demo](https://iris-mail.demo.community.intersystems.com/csp/sys/UtilHome.csp)
-
-[webterminal](https://iris-mail.demo.community.intersystems.com/terminal/)
+You can find online demo here - [portal](https://iris-mail.demo.community.intersystems.com/csp/sys/UtilHome.csp) [webterminal](https://iris-mail.demo.community.intersystems.com/terminal/)
 
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/mail_py.png)
 
+## Settings
+
+iris-mail uses port 30025 to receive mail. If you have outbound email operation sending to iris-mail, configure it with your iris-mail IP address.
+
+![screenshot](https://github.com/oliverwilms/bilder/blob/main/outbound_mail_settings.png)
