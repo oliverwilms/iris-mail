@@ -53,7 +53,7 @@ do ##class(%SYS.Python).Shell()
 
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/iris-mail-demo.png)
 
-You can find online demo here - [portal](https://iris-mail.demo.community.intersystems.com/csp/sys/UtilHome.csp) [webterminal](https://iris-mail.demo.community.intersystems.com/terminal/)
+You can find online demo here - [portal](https://iris-mail.demo.community.intersystems.com/csp/sys/UtilHome.csp) or [webterminal](https://iris-mail.demo.community.intersystems.com/terminal/)
 
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/mail_py.png)
 
