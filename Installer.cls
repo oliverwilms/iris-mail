@@ -4,7 +4,7 @@ Class App.Installer
 XData setup
 {
 <Manifest>
-  <Default Name="SourceDir" Value="/opt/feeder/src"/>
+  <Default Name="SourceDir" Value="/opt/irisbuild/src"/>
   <Default Name="Namespace" Value="USER"/>
   <Namespace Name="%SYS" Create="no">
     <If Condition='(##class(%File).Exists("/opt/irisbuild/%ZSTART.mac")=1)'>
