@@ -7,7 +7,10 @@ XData setup
   <Default Name="SourceDir" Value="/opt/irisbuild/src"/>
   <Default Name="Namespace" Value="MAIL"/>
   <Namespace Name="${Namespace}" Code="${Namespace}" Data="${Namespace}" Create="yes" Ensemble="1">
-  <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
+    <Configuration>
+      <Database Name="${Namespace}" Dir="/opt/irisbuild" Create="yes" Resource="%DB_${Namespace}"/>
+    </Configuration>
+    <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
   </Namespace>
   <Namespace Name="%SYS" Create="no">
     <If Condition='(##class(%File).Exists("/opt/irisbuild/%ZSTART.mac")=1)'>
