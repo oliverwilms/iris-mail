@@ -1,4 +1,5 @@
 ARG IMAGE=intersystemsdc/iris-community
+ARG IMAGE=quay-quay-helm-valip-quay.apps.vapo-aws-valip-dev.va.gov/helm/intersystems/irishealth:2022.2.0.356.0
 FROM $IMAGE
 
 USER root   
