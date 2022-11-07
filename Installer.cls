@@ -6,6 +6,9 @@ XData setup
 <Manifest>
   <Default Name="SourceDir" Value="/opt/irisbuild/src"/>
   <Default Name="Namespace" Value="USER"/>
+  <Namespace Name="${Namespace}" Create="no">
+    <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
+  </Namespace>
   <Namespace Name="%SYS" Create="no">
     <If Condition='(##class(%File).Exists("/opt/irisbuild/%ZSTART.mac")=1)'>
       <Import File="/opt/irisbuild/%ZSTART.mac" Flags="ck" Recurse="1"/>
