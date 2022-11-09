@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-mail
+  labels:
+    app: iris-mail
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris-mail
+  strategy:
+    type: RollingUpdate   # Upgrade this application with a rolling strategy
+    rollingUpdate:
+      maxSurge: 1         # maximum number of pods that can be scheduled
+                          # above the desired number of pods (replicas)
+      maxUnavailable: 0   # the maximum number of pods that can be unavailable
+                          # during the update
+  template:
+    metadata:
+      labels:
+        app: iris-mail
+  spec:
+      containers:
+      - image: quay-quay-helm-valip-quay.apps.vapo-aws-valip-dev.va.gov/helm/helm-valip-feeder:1.3.0
+        args: ["--check-caps", "false", "--key", "/ICS/iris.key"]
+        name: iris-mail
+        ports:
+        - name: mailserver
+          containerPort: 30025
+          protocol: TCP
+        - name: superserver
+          containerPort: 1972
+          protocol: TCP
+        - name: webserver
+          containerPort: 52773
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 500m
+            memory: 2500Mi
+        volumeMounts:
+        - mountPath: "/ICS"
+          name: my-pv-storage
+      imagePullSecrets:
+      - name: vapo-quay-helm-valip-robot-chcgchdctc
+      securityContext:
+        fsGroup: 51773
+        fsGroupChangePolicy: "OnRootMismatch"
+        seLinuxOptions:
+          type: "spc_t"
+      serviceAccountName: helm-valip-iris
+      volumes:
+      - name: my-pv-storage
+        persistentVolumeClaim:
+          claimName: odf-ics
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iris-mail
+spec:
+  type: ClusterIP
+  selector:
+    app: iris-mail
+  ports:
+    - port: 30025
+      targetPort: 30025
+
+---
+apiVersion: v1
+kind: Service             # oc expose service/mail-web
+metadata:
+  name: mail-web
+spec:
+  type: ClusterIP
+  selector:
+    app: iris-mail
+  ports:
+    - port: 52773
+      targetPort: 52773
