@@ -20,7 +20,7 @@ spec:
     metadata:
       labels:
         app: iris-mail
-  spec:
+    spec:
       containers:
       - image: quay-quay-helm-valip-quay.apps.vapo-aws-valip-dev.va.gov/helm/helm-valip-feeder:1.3.0
         args: ["--check-caps", "false", "--key", "/ICS/iris.key"]
